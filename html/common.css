@@ -1,0 +1,145 @@
+/*
+ * File      : common.css
+ * Author    : 이보람
+ * Date      :
+ *
+ * Summary:
+ * 0) font 적용
+ * 1) 공통
+ * 2) list-tit 상단 메뉴
+ * 3) list 리스트 내용
+ * 4) write / update 업로드 글쓰기
+ * 5) view 상세보기
+ * 6) diary 나의 다이어리
+ * 7) search 검색
+ * 8) share 공유하기
+ * 9) singo 신고하기
+*/
+
+/*=================
+    0) font 적용
+==================*/
+@font-face {
+    font-family: bmjua;
+    src:url('/BMJUA_ttf.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*=================
+	1) 공통
+==================*/
+body { overflow-y: hidden; }
+
+body.loading {
+    overflow: hidden;   
+}
+
+
+/*=================
+    5) view 상세보기
+==================*/
+
+.detail {
+	font-family: bmjua;
+	padding: 6px;
+}
+
+.detail .content {
+	height: 50%;
+	overflow: auto;
+}
+
+.detail hr {
+	color: mediumspringgreen;
+	border: 3px solid;
+	width: 150%;
+	margin-left: -50px;
+	margin-bottom: 3px;
+}
+
+.detail .content .category {
+	width: 8%;
+	min-width: inherit;
+	color: darkgrey;
+	border-bottom-style:solid;
+	border-bottom-width: thin;
+	line-height: 150%;
+}
+
+.detail .content .date { 
+	color: lightgray;
+}
+
+.detail .content p {
+	font-size: 13px;
+	color: darkgrey;
+	letter-spacing: 0.4px;
+}
+
+.detail .content .hashtag {
+	font-size: 13px;
+	background-color:bisque;
+}
+
+.detail .comment {
+	
+}
+
+.detail .comment .right {position: absolute; right:0; margin-right: 15px;}
+.detail .comment img {width:15px; margin-right: 2px; vertical-align: middle;}
+.detail .comment button {margin:1; padding:0; outline:0; border:0; background-color:transparent;}
+.detail .comment li {
+	
+}
+
+/*댓글 내용*/
+.reply-con {margin-top:35px;}
+.reply-con li {overflow: hidden; padding:10px 15px 13px; border-bottom: 1px solid #f1f1f1; background:#fff;}
+.reply-con li div.left .name {margin-right:5px; padding-left:0; font-weight:bold; color:#313131; vertical-align: middle;}
+.reply-con li div.left .name.select {color:red;}
+.reply-con li div.left .date {font-size:12px;}
+.reply-con li div.left button {/*좋아요, 신고하기 버튼*/ padding: 5px 8px;}
+.reply-con li div.left button img {width:13px; vertical-align: middle;}
+.reply-con li div.left button.replylike, .reply-con li div.left button.singo, .reply-con li div.left button.my, .reply-con li div.left button.myreply {float: right;}
+.reply-con li div.left button.my img, .reply-con li div.left button.myreply img {/*내 댓글 수정,삭제 버튼*/ width: auto; height: 13px;}
+.reply-con li div span.no-member {/*텍스트 : 탈퇴한 회원의 글입니다.*/ font-weight:bold; color:#8a8a8a;}
+.reply-con li div p {font-size:15px; color:#474747; line-height: 1.6rem; white-space: normal; word-break: break-all;}
+
+/*대댓글*/
+.reply-con li.reply > div {display: inline-block; width:89%;}
+.reply-con li.reply .ico-reply {width:10%; padding: 13px 0;}
+.reply-con li.reply .ico-reply img {width:10px;}
+
+/*댓글창*/
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-left: 2%
+}
+
+.upload-btn-wrapper input[type="file"] {
+    font-size: 50;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+}
+
+.upload-btn-wrapper .btn {
+  border: none;
+  color: #959595;
+  background-color: white;
+  padding: 0px;
+  height: 30px;
+  border-radius: 8px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.reply-write {vertical-align:top; position:fixed; display:inline-block; bottom:0; z-index:999999; width:100%; padding:3px; background: #fff;}
+.reply-write textarea {vertical-align:top; display:inline-block; position:relative; overflow-y: scroll; width:78%; height:30px; margin-left:2%; margin-right:2%;  padding:7px 10px; border-radius:20px; background: #eee;}
+.reply-write button {display:inline-block; position:relative; height:30px; font-size:15px; color:#959595; background-color:#FFF;}
+.reply-write button.on {color:#0c0958;}
+.image-div {display:none; visibility:hidden; padding:5px 5px;}
+

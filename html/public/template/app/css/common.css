@@ -1,0 +1,419 @@
+/*
+ * File      : common.css
+ * Author    : 이보람
+ * Date      :
+ *
+ * Summary:
+ * 0) font 적용
+ * 1) 공통
+ * 2) list-tit 상단 메뉴
+ * 3) list 리스트 내용
+ * 4) write / update 업로드 글쓰기
+ * 5) view 상세보기
+ * 6) diary 나의 다이어리
+ * 7) search 검색
+ * 8) share 공유하기
+ * 9) singo 신고하기
+*/
+
+/*=================
+    0) font 적용
+==================*/
+@font-face {
+    font-family:fontko1;
+    src:url('/public/template/app/fonts/komacon.ttf') format('truetype');
+    font-style: normal;
+}
+/*@font-face {
+    font-family:fontko2;
+    src:url('/public/template/app/fonts/TmonMonsori.ttf') format('truetype');
+    font-style: normal;
+}*/
+@font-face {
+    font-family:fonten;
+    src:url('/public/template/app/fonts/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+}
+body, * {
+	font: inherit;
+	font-size:13px;
+	font-family: fontko1, 'komacon', fonten, 'Roboto-Regular', 'Malgun Gothic', '맑은 고딕', dotum, '돋움', 'applegothic', HelveticaNeue-Light, AppleSDGothicNeo-Light, Arial, sans-serif;
+    letter-spacing: -0.25px;
+}
+
+/*=================
+    1) 공통
+    * 36pt = 14px / 40pt = 15px / 55pt = 20px
+==================*/
+body {overflow-y: hidden;}
+/*section {background:#fcfcfc;}*/
+section > article {
+    overflow: auto !important;
+}
+.date {font-family:fonten; color:#9c9c9c; vertical-align: middle;}
+
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('/public/logic/app/img/ajax-loader.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+    display: block;
+}
+
+/*=========================
+    2) list-tit 상단 메뉴
+==========================*/
+/*상단 리스트 텍스트 --------*/
+.list-tit {overflow: hidden !important; height: 41px; background:#fff; box-shadow:0 1px 8px rgba(206, 206, 206, 0.8);}
+.list-tit ul li {float: left; width:33.33%; text-align: center;}
+.list-tit ul li button {width: 100%; padding: 10px 0; font-size: 15px; font-weight: bold; color: #cfcfcf;}
+.list-tit ul li.on button {color:#faab36;}
+.list-tit ul li.on button::after {content: ''; display: block; width: 0; height: 0; margin: 5px auto -10px; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 7px solid #fbab35;}
+
+/*============================
+    3) list 리스트 내용
+==============================*/
+/*이미지 1개씩 나오는 리스트 list1.php ---------*/
+.list-area {overflow:auto; height:calc(100vh - 41px); padding:2px 10px 10px;}
+.list-area .list-con ul li.left {padding: 10px;}
+.list-area .list-con ul li.left span {vertical-align: top;}
+.list-area .list-con ul li span {display: inline-block;}
+.list-area .list-con ul li .secret img {/*토니가 들어줄께 비공개 시 보이는 아이콘*/ width:13px; margin-left: 3px; vertical-align: middle;}
+
+.list-area1 .list-con .list-img {/*이미지 사이즈*/ height: 195px;}
+.list-con {position: relative; margin-top:10px; background: #fff; box-shadow:1px 1px 5px #cecece;}
+.list-con .list-img {/*이미지*/ background-repeat: no-repeat; background-position: center; background-size: cover;}
+.list-con .list_con-txt {/*텍스트 내용*/ overflow: hidden; position: absolute; width:100%; text-align:center;}
+.list-con .category {top:0; margin-top: 15px; padding: 10px;}
+.list-con .category > span {padding:5px 8px; border-bottom: 1px solid; font-size: 13px;}
+.list-con .category.textwhite > span {border-bottom-color: rgba(255,255,255,0.8);}
+.list-con .category.textblack > span {border-bottom-color: rgba(0,0,0,0.8);}
+.list-con .txt {
+    display: -webkit-box;
+    top:50%;
+    height: 3em;
+    margin-top: -50px;
+    padding:0 10%;
+    font-size: 17px;
+    line-height: 1.6em;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+.list-con .hashtag {
+    display: -webkit-box;
+    bottom:0;
+    margin-bottom: 45px;
+    height: 2.4em;
+    padding:0 5%;
+    line-height: 0.5em;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:1;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+.list-con .hashtag > span {display: inline-block; margin: 5px 0; padding:8px; vertical-align: middle;}
+.list-con .hashtag > span + span {margin-left: 10px;}
+.list-con .hashtag.textwhite > span {background-color: rgba(255,255,255,0.2); color:#fff;}
+.list-con .hashtag.textblack > span {background-color: rgba(0,0,0,0.2); color:#000;}
+
+.list-box {width: 100%;}
+.list-box li {float: left; width:50%; height:35px; padding: 0 6px;}
+.list-box li button {/*좋아요, 답글 버튼*/ height: 100%; padding: 0px 6px;}
+.list-box li button img {width:15px; vertical-align: middle;}
+.list-box li button span {margin-left: 5px; font-family:fonten; color:#424242; vertical-align: middle;}
+
+/*이미지 2개만 나오는 리스트 list2.php ----------*/
+.list-area2 div  {display: inline-block; width:48.3%;}
+.list-area2 div + div {margin-left: 2%;}
+.list-area2 div:nth-child(2n+1) {margin-left: 0;}
+.list-area2 .list-con .list-img {width:100%; height: 170px;}
+.list-area2 .list-box li.left {padding-right: 0; padding-left:10px;}
+.list-area2 .list-box li.right {padding-left: 0; padding-right:8px;}
+.list-area2 .list-con ul li .date {font-size: 11px; vertical-align: middle !important;}
+.list-area2 .list-box li button {padding:0 4px;}
+
+.list-area3 .list-con .list-img {height: 170px;}
+.list-video-con {position: relative; margin-top:10px; background: #fff; box-shadow:1px 1px 5px #cecece;}
+.list-video-con .list-img {/*이미지*/ background-repeat: no-repeat; background-position: center; background-size: cover;}
+.list-area3 .list-video-con2 {display:inline-block; padding:5px; width:55%; height:90px; margin-left:10px; margin-right:0px; margin-bottom:20px; margin-top:20px; text-align:center;!important;}
+.list-area3 .list-video-con2 a h1 {font-size:15px; text-overflow:ellipsis; word-wrap:break-word; margin-left:-5px; margin-bottom:30px; text-align:left;}
+.list-area3 .list-video-con .thumb-img {display: inline-block; height:90px; width:34%; margin-left:10px; margin-bottom:20px; margin-top:20px;}
+.list_con-txt3 {/*텍스트 내용*/ overflow: hidden; width:100%; text-align:center;}
+/*동영상 view*/
+#player {height:211px;}
+
+
+/*====================================
+    4) write / update 업로드 글쓰기
+======================================*/
+/*업로드 글쓰기 write.php --------*/
+.write-area {height: 100vh;}
+.textwhite {color:rgba(255,255,255,0.85);}
+.textblack {color:rgba(0,0,0,0.85);}
+
+/*업로드 및 상세보기 ------------*/
+.content > div, .content .img {width: 100%; height: 100%; background-repeat: no-repeat; background-position: center; background-size: 100% 100%;}
+.content .txt {overflow-y: auto; padding:80px 40px 0; text-align: center; font-size: 18px; word-break: break-all;height:100%}
+/*.content .txt.txtform {
+    하단 댓글창 클릭되어서 웹뷰가 리사이징 되었을 때 높이 강제 지정
+    height:200px !important;
+}*/
+.content .txt textarea {width: 100%; height:95%; background: transparent; font-size: 18px; text-align:center;}
+.content .hashtag {position: absolute; bottom: 10px; width: 100%; height: auto; padding:0 20px;}
+.content .hashtag a {display: inline-block; margin: 5px 0; padding:3px 5px;}
+.content .hashtag a + a {margin-left: 10px;}
+.content .hashtag.textwhite a {border:1px solid rgba(255,255,255,0.5); color:#fff;}
+.content .hashtag.textwhite a.on {border:1px solid rgba(255,255,255,0.1); background-color: rgba(255,255,255,0.2);}
+.content .hashtag.textblack a {border:1px solid rgba(0,0,0,0.5); color:#000;}
+.content .hashtag.textblack a.on {border:1px solid rgba(0,0,0,0.1); background-color: rgba(0,0,0,0.2);}
+
+/*이미지, 글, 해시태그*/
+.write-area .content {height: 100vh;}
+
+/*하단 비공개,사진업로드,글씨색 변경 버튼*/
+.write-area .floating {position:fixed; right:20px; z-index: 999;}
+.write-area .floating > button.btn {/*플로팅 버튼들*/ width:48px; height: 48px; padding:15px; border-radius: 48px; box-shadow:1px 1px 10px rgba(0,0,0, 0.24);}
+
+.write-area .floating.btn-plus {/*플러스 버튼*/ top:25px;}
+.write-area .floating.btn-plus button {background-color:#faab36;}
+.write-area .floating.btn-box {/*플러스 눌렀을때 나오는 버튼들 (비공개,사진업로드,글씨색 변경)*/ top:95px;}
+.write-area .floating.btn-box button {display: block; background-color: #fff; padding:13px 15px 15px;}
+.write-area .floating.btn-box button + button {margin-top: 8px;}
+
+/*.write-area .btm-box li {float: left; width: 50%; height: 100%;}
+.write-area .btm-box li button {padding:10px;}
+.write-area .btm-box li button img {width:20px;}
+.write-area .btm-box li button.secret img {width:17px;}
+
+.write-area .btm-box li.left {padding-left:10px;}
+.write-area .btm-box li.right {padding: 10px 20px;}
+.write-area .btm-box li.right div {position: relative; display: inline-block; width:20px; height: 20px;}
+.write-area .btm-box li.right div + div {margin-left:5px;}
+.write-area .btm-box li.right div label {position:absolute; top:0; right:0; bottom:0; left:0;}
+.write-area .btm-box li.right div.black label {background:url("/public/template/app/img/color2.png")0 0 no-repeat;}
+.write-area .btm-box li.right div.black input[type="radio"]:checked + label {background-position:0 -20px;}
+.write-area .btm-box li.right div.white label {background:url("/public/template/app/img/color1.png")0 0 no-repeat;}
+.write-area .btm-box li.right div.white input[type="radio"]:checked + label {background-position:0 -20px;}*/
+
+/*사진 업로드 아이콘 클릭시 나오는 사진 이미지 고르기*/
+.write-area .photo-con {position: absolute; top:0; right:0; bottom:0; left:0; z-index: 999; background: #000;}
+.write-area .photo-con ul {overflow-y: auto; width: 100vw; height: 100vh; border:1px solid #000;}
+.write-area .photo-con ul li {float:left; width: calc(100% / 4); height: calc(100vw / 4); border:2px solid #000;}
+.write-area .photo-con ul li button {width:100%; height: 100%; padding: 0;}
+.write-area .photo-con ul li button img {width: 100%; height: 100%;}
+
+/*==========================
+    5) view 상세보기
+=============================*/
+/*상세보기 view.php ------------*/
+.view-area .content {overflow-y: hidden; height:75vh;}
+.view-area .content .txt-box { font-size: 36px;}
+/*.view-area .content .hashtag {bottom:60px;}*/
+.view-area .btm-box {position: absolute; background: #fff; box-shadow:0 2px 10px #cecece;}
+.view-area .btm-box li button.etc img {/*뻔해도 좋은 기타(이미지업로드,sns공유)버튼*/ width:18px;}
+
+/*뻔해도 좋은 view*/
+#arti.view-area .content {width:100%; height:400px;}
+
+/*댓글 내용*/
+.reply-con {margin-top:35px;}
+.reply-con li {overflow: hidden; padding:10px 15px 13px; border-bottom: 1px solid #f1f1f1; background:#fff;}
+.reply-con li div.left .name {margin-right:5px; padding-left:0; font-weight:bold; color:#313131; vertical-align: middle;}
+.reply-con li div.left .name.select {color:red;}
+.reply-con li div.left .date {font-size:12px;}
+.reply-con li div.left button {/*좋아요, 신고하기 버튼*/ padding: 5px 8px;}
+.reply-con li div.left button img {width:13px; vertical-align: middle;}
+.reply-con li div.left button.replylike, .reply-con li div.left button.singo, .reply-con li div.left button.my, .reply-con li div.left button.myreply {float: right;}
+.reply-con li div.left button.my img, .reply-con li div.left button.myreply img {/*내 댓글 수정,삭제 버튼*/ width: auto; height: 13px;}
+.reply-con li div span.no-member {/*텍스트 : 탈퇴한 회원의 글입니다.*/ font-weight:bold; color:#8a8a8a;}
+.reply-con li div p {font-size:15px; color:#474747; line-height: 1.6rem; white-space: normal; word-break: break-all;}
+
+/*대댓글*/
+.reply-con li.reply > div {display: inline-block; width:89%;}
+.reply-con li.reply .ico-reply {width:10%; padding: 13px 0;}
+.reply-con li.reply .ico-reply img {width:10px;}
+
+/*댓글창*/
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin-left: 2%
+}
+
+.upload-btn-wrapper input[type="file"] {
+    font-size: 50;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+}
+
+.upload-btn-wrapper .btn {
+  border: none;
+  color: #959595;
+  background-color: white;
+  padding: 0px;
+  height: 30px;
+  border-radius: 8px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.reply-write {vertical-align:top; position:fixed; display:inline-block; bottom:-10; z-index:999999; width:100%; padding:3px; background: #fff;}
+.reply-write textarea {vertical-align:top; display:inline-block; position:relative; overflow-y: scroll; width:78%; height:30px; margin-left:2%; margin-right:2%;  padding:7px 10px; border-radius:20px; background: #eee;}
+.reply-write button {display:inline-block; position:relative; height:30px; font-size:15px; color:#959595; background-color:#FFF;}
+.reply-write button.on {color:#0c0958;}
+.image-div {display:none; visibility:hidden; padding:5px 5px;}
+/*============================
+    6) diary 나의 다이어리
+==============================*/
+/*나의 다이어리 알림 notice.php --------------*/
+#notice-tit {}
+#notice-area {padding:12px 0 0;}
+.notice-con2 {padding:0 10px; background:#fff; margin-top: 10px;}
+.notice-con2 + .notice-con2 {margin-top: 0;}
+.notice-con2 ul {}
+.notice-con2 li {overflow: hidden; border-bottom: 1px solid rgba(204,204,204,0.8);}
+.notice-con2 li a {padding: 20px 0;}
+.notice-con2 li p {display: inline-block; color:#3f3f3f;}
+.notice-con2 li p.read {/*글을 읽었을 때*/ color:#b1b1b1;}
+.notice-con2 li p.ico-reply {float: right;}
+.notice-con2 li p.ico-reply img {width:13px; margin-right: 5px; vertical-align: middle;}
+
+/*======================
+    7) search 검색
+========================*/
+/*검색 카테고리 search > index.php ---------*/
+.search-area {padding:20px; background:#f9f9f9;}
+
+/* 검색결과 */
+.search-area .info-txt {margin-bottom:20px; padding:10px; background-color:#ededed; font-weight:bold; text-align:center;}
+.search-area .info-txt h3 {color:#9e9e9e;}
+.search-area .info-txt h3 span {color:#ffa014;}
+
+/* 검색 리스트 */
+.search-area ul {border:1px solid rgba(206,206,206,0.5);}
+.search-area ul li { height:75px; padding:15px 20px; border-bottom:1px solid rgba(206,206,206,0.5); background-color:#fff;}
+.search-area ul li:last-child {border-bottom:0;}
+.search-area ul li a {position: relative;}
+.search-area ul li a h3 {margin-bottom:3px; font-weight:bold; font-size:17px; color:#444;}
+.search-area ul li a .hashtag {overflow:hidden; width:75%; color:#7c7c7c; text-overflow:ellipsis; white-space:nowrap;}
+.search-area ul li a .hashtag span + span {margin-left:5px;}
+
+.search-area ul li a p:last-child {/*작성글 수*/ position: absolute; top:35%; right:0; width:20%; text-align: right;}
+.search-area ul li a p:last-child img {width:15px; vertical-align: middle;}
+.search-area ul li a p:last-child span {margin-left: 5px; font-family:fonten; vertical-align: middle;}
+
+/*검색 결과 내용 result.php*/
+#result {overflow-y: auto; height: 100vh;}
+#result ul li {padding:10px 18px; background: #fff; border-bottom:1px solid rgba(204,204,204,0.8);}
+#result.search-area ul li + li {margin-top: 0;}
+#result ul li div {display: inline-block;}
+#result ul li .txt-left {width:5%;}
+#result ul li .txt-left img {width:10px; vertical-align: middle;}
+#result ul li .txt-right {width:94%;}
+#result ul li .txt-right span {display: block;}
+#result ul li .txt-right span.tit {/*검색 키워드 결과 값*/ font-size:17px; color:#2e2e2e; letter-spacing: -0.5px;}
+#result ul li .txt-right span.txt-num {/*게시글 수*/ font-size:12px; color:#aeaeae;}
+
+/*검색 결과 없을때 noresult.php*/
+#noresult {background:#fff;}
+#noresult, #noresult > table {height: 100vh;}
+#noresult > table td {padding:22% 0;}
+#noresult > table td img {width:42px;}
+#noresult > table td p {margin-top:30px; font-size:16px; color:#9e9e9e;}
+
+/*======================
+    8) share 공유하기
+========================*/
+/*공유하기 share.php*/
+.share-area {position: relative; height:100vh;}
+.share-area div {position: absolute; top:25%;}
+.share-area img {width:30%;}
+.share-area p {margin:20px 0; font-size:15px; font-weight:bold; color:#2e2e2e;}
+.share-area button {display: block; width:30%; margin:0 auto; padding:10px 0; border:1px solid #1f94bb; border-radius: 3px; font-size:15px; color:#1f94bb; text-align: center;}
+.share-area button + button {margin-top:5px;}
+.share-area button:active {background-color:#1f94bb; color:#fff;}
+
+/*======================
+    9) singo 신고하기
+========================*/
+/*신고하기 singo.php*/
+.singo-area {position: relative; height: 100vh; background-color:#f5f5f5;}
+.singo-area div {padding:20px;}
+.singo-area div ul {padding:20px; background-color: #fff;}
+.singo-area div ul li {position: relative;}
+.singo-area div ul li + li {margin-top: 25px;}
+.singo-area input[type="radio"] {
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip:rect(0,0,0,0);
+}
+.singo-area input[type="radio"] + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    background-color: #fff;
+    font-size: 15px;
+    color: #b4b4b4;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.singo-area input[type="radio"] + label::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #b4b4b4;
+    border-radius: 100%;
+    background: transparent;
+    text-align: center;
+}
+.singo-area input[type="radio"]:checked + label {
+    color:#363636;
+}
+.singo-area input[type="radio"]:checked + label::before {
+    border-color: #363636;
+    background: transparent;
+}
+.singo-area input[type="radio"]:checked + label::after {
+    content:'';
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    width:9px;
+    height:9px;
+    border-radius: 100%;
+    background-color:#363636;
+}
+.singo-area button {/*신고하기 버튼*/ position:absolute; bottom:0; width:100%; height: 46px; background-color: #e62121; font-size:17px; color:#fff;}

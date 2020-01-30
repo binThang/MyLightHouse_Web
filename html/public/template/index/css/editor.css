@@ -1,0 +1,5 @@
+/*editor*/
+div.editor_control {position: absolute;left:0;right:0;top:0;height:30px;padding:inherit;padding-bottom: 0;}
+div.editor_control button {float: left; padding:10px;color:#fff; background:#242c3a;}
+div.editor {margin-top:40px;text-align: left;min-height: 300px; max-height:700px; overflow-y: auto;overflow-x: hidden;border:1px solid #d7d7d7; padding:10px;}
+div.editor img {max-width:95%;}

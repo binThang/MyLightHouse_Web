@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+* {
+	box-sizing:border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-text-size-adjust: none; /*iOS 폰트 크기 조절*/
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: top;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main, a, summary {
+	display:block;
+	overflow:hidden;
+}
+
+body, * {
+	font-size:12px;
+	font-family:'Malgun Gothic', '맑은 고딕', dotum, '돋움', 'applegothic', HelveticaNeue-Light, AppleSDGothicNeo-Light, Arial, sans-serif;
+	line-height:1.5em;
+}
+
+section > article {
+	overflow:hidden;
+	width:100%;
+}
+a, button, span, textarea, input, div, img {
+	outline-color: transparent;
+	outline-style: none;
+	-webkit-tap-highlight-color: rgba(255,255,255,0);
+	-webkit-tap-highlight-color: transparent;
+}
+ul {
+	overflow:hidden;
+}
+ol, ul, li {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	width:100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout:fixed;
+	word-break: break-all;
+}
+img {max-width:100%;}
+a {color:#000; text-decoration:none; cursor:pointer;}
+button {border:none; background:transparent; font-family: inherit; cursor:pointer;}
+legend {position:absolute; top:-9999px; left:0;}
+input, textarea {border:none; border-radius: 0; -webkit-border-radius:0; background:#fff; font-family:inherit;}
+input, select, button {margin:0;}
+textarea {resize:none;}
+address {font-style:normal;}
+label {cursor:pointer;}
+input, button {	-webkit-appearance: none; -moz-appearance: none;} /*iOS 둥근 테두리, 그림자*/
+input[type='checkbox']{-webkit-appearance:checkbox;}
+input[type='radio']{-webkit-appearance:radio;}
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	input[checked='checked'] {border:none; background:none;}
+}
+
+/*공통 클래스*/
+.blind {overflow: hidden; position: absolute; top:-9999999px; width: 0; height: 0; font-size: 0; line-height: 0;}
+.relative {position: relative !important;}
+.hidden {display:none !important;}
+.left {text-align:left !important;}
+.center {text-align:center !important;}
+.right {text-align:right !important;}
+.top {vertical-align: top !important;}
+.middle {vertical-align: middle !important;}
+.bottom {vertical-align: bottom !important;}
+
+html,body {height:100%;}
+body, * {
+	font: inherit;
+	font-size:13px;
+	letter-spacing:-0.50px;
+	line-height:1.4em;
+	font-family: fontko, 'NotoSans-Regular', enbold,'Roboto-Black', enregular,'Roboto-Regular', notothin, 'NotoSans-Thin';
+}
+.error{height:100vh;}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<link href="common.css" rel="stylesheet" type="text/css"/>
+</head>
+	
+<body>
+	<article class="detail">
+		<section class="content">
+			<span class="category">이성<br></span>
+			<span class="date">2018.05.10</span>
+			<p>서울쪽 대학 입학결정난 지방에사는
+ 고3입니다 다른친구들은 성적 수시 수능 대학만 보고 고생하는데 저는 이제 입힉결정이나서 애들이 너무 부러워해 학교에서 입닫고 최대한 조용히 하고있어요 살아가고 꿈에 다가가는 방법만 다르지 다같은 고3인데.. 누구라고 안힘든
+법없고 저는 제가 좀더일찍 얻은 결과라 생각합니다 근데 제가 오히려 눈치를 보게되고 점점 안그래도 낮았던 자존감은 더없이 낮아지고 요새는 우울하기만하고 이 지역에서 하는 행동은 의미없는 형식적인 행동들만 같아요 성인이되어 얼른 서울로 떠나버리고 싶은 마음이 큽니다 이지역사람들과는 번호를 바꾸면서 모두 끊어 버리고 싶어요 올해를 어떻게 버틸지 너무 막막합니다 또 저는 항상 사람은 언제든 죽을수 있다 생각합니다  항상 사람들은 자살을 가슴속에 묻어두는거 아닌가요 안하고있을 뿐이지 언제든 가능한거라 생각듭니다 저도 중학교때 시도를 했었거든요 요새 우울한기분만 드니 더욱 생각나고 이런 얘기를 친한친구에게 하자니 그친구를 더 힘들게 하는것같고 고작 이런걸로 그러냐 그럴것같고 부끄럽네요 
+용기내어 끄적여 봅니다</p>
+			<span class="hashtag">#외로움</span>
+			<span class="hashtag">#무기력</span>
+			<span class="hashtag">#불안</span>
+			<span class="hashtag">#우울</span>
+			<span class="hashtag">#방황</span>
+			<span class="hashtag">#충동</span>
+			<span class="hashtag">#감정기복</span>
+			<span class="hashtag">#트라우마</span>
+		</section>
+	  <hr class="sectioncut">
+		<section class="comment">
+			<div style="margin-left: -5px; margin-right: -5px">
+				<button>
+					<img src="like_off.png" alt="좋아요"/>
+					<span>1</span>
+				</button>
+				<button>
+					<img src="reply1.png" alt="댓글 수"/>
+					<span>1</span>					
+				</button>
+				<button class="right">
+					<img src="warning.png" alt="신고하기"/>
+					<span>1</span>					
+				</button>
+			</div>
+			<ul>
+				<li>
+					
+				</li>
+			</ul>
+		</section>
+	</article>
+</body>
+<footer>
+	<div id="reply-write" class="reply-write"> 
+	  	<form>
+    		<fieldset>
+				<div class="upload-btn-wrapper">
+					<button class="btn" type="button">+</button>
+					<input type="file" class="" id='replyimage' accept="image/*"></input>
+		     	</div>
+	      		<textarea type="text" contenteditable="true" id = 'reply' autocomplete="off" required="false"></textarea>
+		      	<button type="button" class="button" id='replybutton' data-idx = '<?=$this->view->board_idx?>' data-parent-idx = '' data-reply = ''>등록</button> <!--[D]텍스트 입력시 on class!!-->
+		      	<input type = 'hidden' value = '<?=$this->view->board_idx?>' id = 'kind'/>
+    		</fieldset>
+  		</form>
+	</div>
+</footer>
+	
+</html>

@@ -1,0 +1,51 @@
+/*
+ * File      : ios.css
+ * Author    : 이보람
+ * Date      :
+ *
+ * Summary:
+ * 0) list 리스트 내용
+ * 1) view 상세보기
+ * 2) reply 답변
+ * 3) write / update 업로드 글쓰기
+ * 4) ios se 사이즈
+*/
+
+/*=======================
+    0) list 리스트 내용
+========================*/
+.list-con .txt {height:2.8em; line-height: 1.4em;}
+.list-con .hashtag > span {padding:4px 8px;}
+
+/*=====================
+    1) view 상세보기
+=======================*/
+.view-area .content {height:calc(85vh - 50px);}
+
+/*===================
+    2) reply 답변
+=====================*/
+/*
+.reply-con {margin-bottom: 3px !important;}
+.reply-write{position: relative; margin-bottom: 5px;}
+.reply-write input {vertical-align: middle;}
+.reply-write button {vertical-align: bottom;}
+*/
+
+/*=====================================
+    3) write / update 업로드 글쓰기
+=======================================*/
+.write-area form, .write-area fieldset {height: 100vh; border:1px solid transparent;}
+#update .content .txt {/*수정페이지 일때 텍스트 창 높이 값 고정*/ height: 65vh;}
+
+/*=====================
+    4) ios se 사이즈
+=======================*/
+@media screen and (max-width:320px){
+    /*리스트 화면 두개일 때*/
+    .list-area2 .list-con ul li {float: none; width: 100%;}
+    .list-area2 .list-con ul li.left {border-bottom:1px solid #f1f1f1; text-align: right !important;}
+    .list-area2 .list-con ul li.right {height:auto; padding:10px 0 !important; text-align: center !important;}
+    .list-area2 .list-con ul li.right button {width:47%; padding:0;}
+    .list-area2 .list-con ul li.right button:first-child {border-right:1px solid #f1f1f1;}
+}

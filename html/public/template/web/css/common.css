@@ -1,0 +1,29 @@
+@font-face {
+    font-family:fontko1;
+    src:url('/public/template/app/fonts/NotoSans-Regular.woff') format('woff');
+    font-style: normal;
+}
+@font-face {
+    font-family:fontko2;
+    src:url('/public/template/app/fonts/NotoSans-Medium.woff') format('woff');
+    font-style: normal;
+}
+html, body {position: relative;}
+body, * {
+	font: inherit;
+	font-size:12px;
+	font-family: fontko1, 'NotoSans-Regular', fontko2, 'NotoSans-Medium';
+}
+section {background:#fcfcfc;}
+
+/*36pt = 12px / 40pt = 13px / 55pt = 18px*/
+
+
+/*공유하기 share.php*/
+.share-area {position: relative; height:100vh;}
+.share-area div {position: absolute; top:25%;}
+.share-area img {width:30%;}
+.share-area p {margin:20px 0; font-size:13px; font-family:fontko2; color:#2e2e2e;}
+.share-area button {display: block; width:30%; margin:0 auto; padding:10px 0; border:1px solid #1f94bb; border-radius: 3px; font-size:13px; color:#1f94bb; text-align: center;}
+.share-area button + button {margin-top:5px;}
+.share-area button:active {background-color:#1f94bb; color:#fff;}
